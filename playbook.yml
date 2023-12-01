@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   vars:
     certfiles: [
       {src: 'fullchain.pem', dst: 'cert.pem'},
@@ -28,7 +28,7 @@
       certbot_admin_email: "{{ cert_email }}"
       # the role is dummy and needs anyway a service to stop,
       # so I choosed: "ntp"
-      certbot_create_standalone_stop_services: ntp
+      certbot_create_standalone_stop_services: "ntp.service"
       certbot_certs:
         - domains: "{{ cert_domains }}"
       when:

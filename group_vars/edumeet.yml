@@ -9,17 +9,17 @@ edumeet_tag: 3.5.3
 # or dev for develop
 config_template_version: 3.5.0
 
-fqdn_domain: example.com
+fqdn_domain: uitdeknoei-hr.src.surf-hosted.nl
 
 # let's encrypt
 cert_domains:
   - "{{ fqdn_host }}.{{ fqdn_domain }}"
-cert_email: user@example.com
+cert_email: carsten.schelp@surf.nl
 
 # TURN
 turn_uri: turn:ltc.turn.geant.org:443?transport=tcp
-turn_user: user
-turn_password: password
+turn_user: carsten_schelp_at_surf_nl
+turn_password: q9y72cUFKcSPUJDjNdJdJ5rDE2eHkjKV
 
 # Introduced in version: 3.3.0
 # If you part of the NREN community then
@@ -28,7 +28,7 @@ turn_api_uri: "https://api.turn.geant.org/turn"
 turn_api_key: ""
 
 # session cookie secret
-cookie_secret: secret-cookie
+cookie_secret: 4cd461e3-b97c-45c2-accd-363470a0b77a
 
 
 # See for more options and defaults in all.yml

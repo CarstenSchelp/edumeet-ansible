@@ -12,18 +12,19 @@ edumeet_tag: latest
 # or dev for develop
 config_template_version: 3.2.1
 
-fqdn_host: meet
-fqdn_domain: example.com
+fqdn_host: edumeetmanual02
+fqdn_domain: uitdeknoei-hr.src.surf-hosted.nl
 
 # let's encrypt
 cert_domains:
   - "{{ fqdn_host }}.{{ fqdn_domain }}"
-cert_email: "user@example.com"
+cert_email: "carsten.schelp@surf.nl"
 
 # TURN
-turn_uri: "turn:turnserver.example.com:443?transport=tcp"
-turn_user: turn_user
-turn_password: turn_password
+turn_uri: turn:ltc.turn.geant.org:443?transport=tcp
+turn_user: carsten_schelp_at_surf_nl
+turn_password: q9y72cUFKcSPUJDjNdJdJ5rDE2eHkjKV
+
 
 # Introduced in version: 3.3.0
 # If you part of the NREN community then
@@ -32,7 +33,7 @@ turn_api_uri: "https://api.turn.geant.org/turn"
 turn_api_key: ""
 
 # session cookie secret
-cookie_secret: secret-cookie
+cookie_secret: 4cd461e3-b97c-45c2-accd-363470a0b77a
 
 # Page head short title
 title: "Multiparty Meeting"
