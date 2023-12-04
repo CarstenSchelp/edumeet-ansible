@@ -1,7 +1,7 @@
 ---
-fqdn_host: edumeetmanual02
+fqdn_host: meet
 
-# by default we use letsencrypt and so local_cert is flase
+# by default we use letsencrypt and so local_cert is false
 # set it true to enable local cert usage
 #local_cert: true 
 # also modify certificates src according your local cert location

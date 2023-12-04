@@ -23,7 +23,7 @@ cert_email: "carsten.schelp@surf.nl"
 # TURN
 turn_uri: turn:ltc.turn.geant.org:443?transport=tcp
 turn_user: carsten_schelp_at_surf_nl
-turn_password: q9y72cUFKcSPUJDjNdJdJ5rDE2eHkjKV
+turn_password: {{ turn_password }}
 
 
 # Introduced in version: 3.3.0
@@ -33,7 +33,7 @@ turn_api_uri: "https://api.turn.geant.org/turn"
 turn_api_key: ""
 
 # session cookie secret
-cookie_secret: 4cd461e3-b97c-45c2-accd-363470a0b77a
+cookie_secret: {{ cookie_secret }}
 
 # Page head short title
 title: "Multiparty Meeting"

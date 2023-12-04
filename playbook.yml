@@ -1,15 +1,26 @@
 ---
 - hosts: localhost
+  become: true
   vars:
     certfiles: [
       {src: 'fullchain.pem', dst: 'cert.pem'},
       {src: 'privkey.pem', dst: 'privkey.pem'}
     ]
     ansible_python_interpreter: /usr/bin/python3
+  
+  pre_tasks:
+    # `workspace_fqdn` is in the form <hostname>.<co_short_name>.src.surf-hosted.nl
+    - name: Get domain and hostname
+      set_fact:
+        fqdn_host: "{{ wsp_fqdn.split('.', 1)[0] }}"
+        fqdn_domain: "{{ wsp_fqdn.split('.', 1)[1] }}"
+
+    - name: Install required roles
+      command: ansible-galaxy install -r requirements.yml
+
   roles:
     - role: pre
     - role: jnv.unattended-upgrades
-      become: true
       unattended_origins_patterns:
         # security updates
         - 'origin=Debian,codename=${distro_codename},label=Debian-Security'
@@ -18,11 +29,9 @@
         - 'o=Debian,codename=${distro_codename},a=proposed-updates'
 
     - role: geerlingguy.docker
-      become: true
       docker_install_compose: true
 
     - role: geerlingguy.certbot
-      become: true
       certbot_create_if_missing: true
       certbot_create_method: standalone
       certbot_admin_email: "{{ cert_email }}"
